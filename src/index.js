@@ -21,10 +21,9 @@ function Welcome() {
     );
 }
 
-function ShowDescription()
-{
+function ShowDescription() {
     const rand = Math.floor(Math.random() * 1000);
-    const mySQL = GetResponse(`http://localhost:8080/home/findFilmById/${rand}`);
+    const mySQL = GetResponse(`https://sakila-1668609746572.azurewebsites.net/home/findFilmById/${rand}`);
 
     return(
         <div>
@@ -36,14 +35,13 @@ function ShowDescription()
 }
 
 
-function GetResponse(url)
-{
+function GetResponse(url) {
     const [myResponse, setResponse] = useState("");
 
     const getResponse = async () =>{
         const res = await fetch(url);
-        const responce = await res.json();
-        setResponse(responce);
+        const response = await res.json();
+        setResponse(response);
     }
 
     useEffect(() =>
@@ -56,31 +54,46 @@ function GetResponse(url)
     )
 }
 
+  
 function TopNav() {
     return (
         <div class="topnav link center whatson">
             <a class="active" href="#home"><img src="./logo.jpg" alt="cat image"/></a>
             <div class="topnavtext">
             <div>
+                <span>
                 <a href="#whats-on">WHAT'S ON</a>
+                </span>
             </div>
             <div>
+                <span>
                 <a href="#contact">BIG SCREEN EVENTS</a>
+                </span>
             </div>
             <div>
+                <span>
                 <a href="#about">INSIDE VUE</a>   
+                </span>
             </div>
             <div>
+                <span>
                 <a href="#whats-on">OFFERS</a>
+                </span>
             </div>
             <div>
+                <span>
                 <a href="#contact">GIFT CARDS</a>
+                </span>
             </div>
             <div>
+                <span>
                 <a href="#about">Log in</a>
+                </span>
             </div>
             <div>
+                <span>
                 <a href="#about">Join</a>
+                </span>
             </div>
         </div>
         </div>
